@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automating the An Khang Online health dashboard · Truong Duc Anh</title>
+  <meta name="description" content="Whenever anyone needed health metrics for the web and app, they had to ask the PM team to prepare them. The PM team then had to pull figures from…">
+  <link rel="canonical" href="/work/dashboard-automation/">
+  <link rel="alternate" hreflang="en" href="/work/dashboard-automation/">
+  <link rel="alternate" hreflang="vi" href="/vi/work/dashboard-automation/">
+  <link rel="alternate" hreflang="x-default" href="/work/dashboard-automation/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="sparrow · Truong Duc Anh">
+  <meta property="og:title" content="Automating the An Khang Online health dashboard">
+  <meta property="og:description" content="Whenever anyone needed health metrics for the web and app, they had to ask the PM team to prepare them. The PM team then had to pull figures from…">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="vi_VN">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Montserrat+Alternates:wght@600&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="logo" href="/" aria-label="sparrow, home">sparrow</a>
+
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/about/">about</a></li>
+          <li><a class="nav__link" href="/work/" aria-current="page">work</a></li>
+          <li><a class="nav__link nav__link--accent" href="/contact/">contact</a></li>
+        </ul>
+        <div class="lang" aria-label="Language">
+          <a href="/work/dashboard-automation/" hreflang="en" lang="en" aria-current="true">EN</a>
+          <span aria-hidden="true">/</span>
+          <a href="/vi/work/dashboard-automation/" hreflang="vi" lang="vi">VI</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <div class="page-title">
+        <p class="page-title__text">work</p>
+      </div>
+    </div>
+
+    <article class="container case">
+      <div class="inner">
+        <header class="case__head">
+          <p class="case__meta">An Khang Pharmacy | 2026 | Product Manager</p>
+          <h1 class="case__title">Automating the An Khang Online health dashboard</h1>
+        </header>
+        <figure class="figure figure--hero">
+          <div class="figure__media"><div class="ph">cover image</div></div>
+        </figure>
+
+        <div class="prose">
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Problem</h2>
+        <p>Whenever anyone needed health metrics for the web and app, they had to ask the PM team to prepare them. The PM team then had to pull figures from several sources, type them in by hand for about 15 to 20 minutes every day, and take screenshots or export PDFs from the report file to send to stakeholders. The monthly report took 1 to 3 hours if done in one go, but with other work in between it could stretch to 3 to 4 days.</p>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Role</h2>
+        <p>I was responsible for the whole project: spotting what could be automated in daily work, defining the approach with AI&#x27;s help, consolidating the data sources, writing Google Apps Script (GAS) and the HTML report, publishing on GitHub Pages, improving it from feedback, and writing the handover documentation. I had no coding experience before, so every part was built with AI, step by step.</p>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Approach</h2>
+        <p>It started by replacing manual data entry with automation using GAS. GAS runs twice a day, cleans the data, writes it to one shared store, and connects through an API to pull in sessions and conversion rate from GA4. The report is a single HTML web page, using the design language of the group&#x27;s annual reports so leadership finds it familiar and easy to read. The sales team uses the daily report to plan promotions or shift budget toward a weak channel such as marketplaces; the PM team tracks traffic and app downloads to propose traffic-driving features or app-install programs; the CEO and CTO read the monthly report to set direction.</p>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Three key decisions</h2>
+        <ul class="prose__list"><li>Extend from the daily report to the monthly report. I realized the monthly report is essentially the daily report plus growth commentary and next month&#x27;s work plan, so one shared data store could serve both.</li><li>Create an HTML page that every stakeholder can open themselves, replacing screenshots and PDFs sent by hand, so they can check the report whenever they need it.</li><li>Use free, password-protected tools, the best fit for internal use (Google Sheets, GAS, GitHub Pages). The only cost was a one-time cost at build, for an AI plan.</li></ul>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Challenges</h2>
+        <p>The code from the first AI model was not good enough, so I had to switch both the model and the AI tool and rewrite from scratch. The new AI took over the old code, which led to logic errors and inconsistent coding styles, and the numbers were far off at acceptance. To fix it, I compared against the manual numbers; whenever something was off, I had the AI find the error and rewrite, then review the whole codebase for consistency, add comments, and write the handover documentation.</p>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">After go-live</h2>
+        <p>The CTO reviewed the report in the regular monthly meeting and suggested adding a section on work done and planned, which the first version lacked, so managers would have the full picture to decide. The sales team used the report to present the online business to the BOD. Other sites in the group also looked to the approach and asked for the template to apply to their own sites.</p>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Lessons</h2>
+        <ul class="prose__list"><li>With daily work that has become familiar and turned into habit, it is hard to notice inefficiency in how it is done. So it takes close observation and reflection deep enough to find what can be improved.</li><li>If I did it again, I would choose the AI tool carefully from the start and keep one strong coding AI throughout the project, so the code stays consistent and doesn&#x27;t need rewriting.</li></ul>
+      </section>
+      <section class="prose__sec" data-reveal>
+        <h2 class="prose__label">Results</h2>
+        <p>The daily report went from about 15 to 20 minutes of manual entry per day to zero (fully automated). The monthly report went from 1 to 3 hours of work to about 5 minutes of review and commentary. That saves roughly 11 to 15 hours a month, or 132 to 180 hours a year.</p>
+      </section>
+        </div>
+
+        <nav class="case__nav" aria-label="all work">
+          <a class="btn" href="/work/an-khang-v4/" rel="prev">previous</a>
+          <a class="btn" href="/work/">all work</a>
+          <a class="btn" href="/work/erablue-indonesia/" rel="next">next</a>
+        </nav>
+      </div>
+    </article>
+
+    <!-- Khối contact -->
+    <section class="container" aria-labelledby="contact-title">
+      <div class="inner contact-cta" data-reveal>
+        <h2 class="sec-title" id="contact-title">contact</h2>
+        <a class="btn-hatch" href="mailto:ducanh3103@gmail.com"><span class="btn-hatch__inner">say hello</span></a>
+        <p>Got an interesting problem? Say hello.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="site-footer__nav">
+        <li><a class="nav__link" href="/about/">about</a></li>
+        <li><a class="nav__link" href="/work/">work</a></li>
+        <li><a class="nav__link nav__link--accent" href="/contact/">contact</a></li>
+      </ul>
+      <div class="site-footer__bottom">
+        <p class="copyright">© 2026 Truong Duc Anh</p>
+        <ul class="social">
+          <!-- TODO: thay # bằng link thật -->
+          <li><a href="#">linkedin</a></li>
+          <li><a href="#">instagram</a></li>
+          <li><a href="#">facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
