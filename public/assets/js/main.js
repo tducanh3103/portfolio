@@ -76,10 +76,22 @@
     var timer = null;
     var heroVisible = true;
 
+    // Ảnh từ thứ 2 trở đi chỉ tải khi đến lượt (data-src), tải trước một ảnh để chuyển cảnh mượt
+    function load(i) {
+      var img = slides[i % slides.length].querySelector("img[data-src]");
+      if (img) {
+        img.src = img.getAttribute("data-src");
+        img.removeAttribute("data-src");
+      }
+    }
+    window.addEventListener("load", function () { load(1); });
+
     function next() {
       slides[current].classList.remove("is-active");
       current = (current + 1) % slides.length;
+      load(current);
       slides[current].classList.add("is-active");
+      load(current + 1);
     }
     function start() { if (!timer) timer = setInterval(next, 5000); }
     function stop() { clearInterval(timer); timer = null; }

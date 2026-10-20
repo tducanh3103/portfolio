@@ -252,6 +252,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .ph--dark { background-color: #e6e6e6; }
 .ph--darker { background-color: #dadada; }
 
+/* Ảnh thật thay cho ô giữ chỗ: phủ kín khung, cắt gọn theo tỉ lệ khung, không méo */
+.hero__slide > img,
+.card__media > img,
+.figure__media > img,
+.intro__photo > img,
+.about-hero__photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ---------- 5. Kiểu chữ dùng chung ---------- */
 
 /* Tiêu đề khối: "problems", "contact" */
