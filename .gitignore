@@ -1,0 +1,7 @@
+# Bản nháp nội dung và ảnh tham chiếu thiết kế: giữ trên máy, không đưa lên GitHub công khai
+/content/
+/design-refs/*.png
+
+# File hệ thống và công cụ
+.DS_Store
+.claude/
