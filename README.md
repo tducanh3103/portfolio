@@ -10,4 +10,8 @@ Thay địa chỉ tạm trong thẻ SEO (canonical, og:image, sitemap, robots) b
 grep -rl "portfolio.YOUR-SUBDOMAIN.workers.dev" public | xargs sed -i '' 's#https://portfolio.YOUR-SUBDOMAIN.workers.dev#https://DIA-CHI-THAT#g'
 ```
 
-Còn lại: link LinkedIn, Instagram, Facebook (đang là `#`), file CV PDF trên trang About, ảnh thật thay các ô giữ chỗ.
+Còn lại: ảnh thật thay các ô giữ chỗ, link LinkedIn / Instagram / Facebook và file CV PDF (xem mục cuối).
+
+## Link chờ bổ sung
+
+Link LinkedIn, Instagram, Facebook (footer, trang Contact) và nút CV (trang About) đang hiện với `href="#"`. Khi có link thật, tìm `href="#"` trong `public/` và thay bằng link thật.

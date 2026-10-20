@@ -1,5 +1,5 @@
 /* ==========================================================================
-   sparrow — portfolio Trương Đức Anh
+   sparrow: portfolio Trương Đức Anh
    Bố cục & màu theo Figma 2021, cảm giác chuyển động theo walnuuut.
    ========================================================================== */
 
@@ -147,7 +147,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   line-height: 1.4;
 }
 
-/* C1 — gạch chân mọc từ trái sang khi rê chuột */
+/* C1: gạch chân mọc từ trái sang khi rê chuột */
 .nav__link::after {
   content: "";
   position: absolute;
@@ -176,7 +176,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .lang a[aria-current="true"] { color: var(--black); }
 .lang span { color: var(--line); }
 
-/* Nút ☰ (chỉ mobile) — hai vạch như Figma, biến thành ✕ khi mở */
+/* Nút ☰ (chỉ mobile): hai vạch như Figma, biến thành ✕ khi mở */
 .menu-btn {
   position: relative;
   width: 44px;
@@ -293,7 +293,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 @media (max-width: 899.98px) { .title-rule::before { display: none; } }   /* Figma mobile không có vạch */
 
-/* C2 — link chữ có gạch dưới: "view all", "more about me" */
+/* C2: link chữ có gạch dưới: "view all", "more about me" */
 .text-link {
   position: relative;
   display: inline-block;
@@ -331,7 +331,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .btn--solid { background: var(--black); color: var(--white); }
 
-/* C5 — nút có bóng sọc chéo lệch dưới phải */
+/* C5: nút có bóng sọc chéo lệch dưới phải */
 .btn-hatch {
   position: relative;
   isolation: isolate;      /* giữ lớp bóng nằm ngay dưới nút, không bị nền khối che */
@@ -501,7 +501,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__title { font-size: 20px; }
 }
 
-/* Giới thiệu ngắn — bố cục khối "weird me" */
+/* Giới thiệu ngắn: bố cục khối "weird me" */
 .intro { padding-top: 120px; }
 
 .intro__grid {
@@ -554,7 +554,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .spaced-title { font-size: 48px; }
 }
 
-/* Dự án nổi bật — bố cục khối "problems" */
+/* Dự án nổi bật: bố cục khối "problems" */
 .work { padding-top: 120px; }
 .work__head { margin-bottom: 40px; }
 .work__head .label { display: flex; margin-top: 2px; }

@@ -1,4 +1,4 @@
-/* sparrow — hiệu ứng tương tác. JS thuần, không thư viện. */
+/* sparrow: hiệu ứng tương tác. JS thuần, không thư viện. */
 (function () {
   "use strict";
 

@@ -63,7 +63,7 @@
     <div class="container">
       <div class="page-title">
         <div class="page-title__inner">
-          <p class="page-title__text">work</p>
+          <p class="page-title__text">work</p><span class="page-title__sub">dự án chọn lọc</span>
         </div>
       </div>
     </div>
@@ -89,23 +89,23 @@
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Cách làm</h2>
-        <p>Bắt đầu từ bài toán &quot;chuyển nhà&quot;: khuyến mãi từ ERP sang Promotion Engine, nội dung sản phẩm sang PIM, đơn hàng và dữ liệu khách hàng sang SOM. Đây là ba hệ lõi dùng chung cho cả tập đoàn sau này, nên mọi thông số từ hệ cũ phải khớp và đồng bộ sang hệ mới. Hệ trang listing và trang chi tiết được tổ chức lại để khách dễ điều hướng hơn giữa trang ngành hàng và trang sản phẩm. Toàn bộ giao diện được làm lại theo chuẩn thị trường, trên nền tảng design system mình đã xây dựng và training cho team từ trước. Các thiết kế được sắp xếp theo thứ tự ưu tiên từ cao đến thấp để đảm bảo Dev kịp tiến độ với những tính năng quan trọng.</p>
+        <p>Bắt đầu từ bài toán &quot;chuyển nhà&quot;: khuyến mãi từ ERP sang Promotion Engine, nội dung sản phẩm sang PIM, đơn hàng và dữ liệu khách hàng sang SOM. Đây là ba hệ lõi dùng chung cho cả tập đoàn sau này, nên mọi thông số từ hệ cũ phải khớp và đồng bộ sang hệ mới. Hệ trang listing và trang chi tiết được tổ chức lại để khách dễ điều hướng hơn giữa trang ngành hàng và trang sản phẩm. Toàn bộ giao diện được làm lại theo chuẩn thị trường, trên nền tảng design system đã xây dựng và training cho team từ trước. Các thiết kế được sắp xếp theo thứ tự ưu tiên từ cao đến thấp để đảm bảo Dev kịp tiến độ với những tính năng quan trọng.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Ba ràng buộc dẫn đến ba quyết định</h2>
-        <ul class="prose__list"><li>Ban lãnh đạo yêu cầu launch trong 1 đến 2 tháng, trong khi nguồn lực IT và PM có hạn. Để đáp ứng yêu cầu này, mình chia dự án thành hai phase, chọn theo mức độ liên quan đến kinh doanh và chốt qua các buổi họp chung giữa các bên. Phase 1 đưa web và app ra cùng lúc với phần lõi bán lẻ: listing, giỏ hàng, khuyến mãi. Phase 2 gồm tin tức, thông báo, gợi ý sản phẩm, tra cứu bệnh và hoạt chất.</li><li>Giữ SEO tốt nhất cần chuyển hệ bài tin sang lõi mới ngay, nhưng như vậy sẽ không đảm bảo tiến độ. Mình cân nhắc lại: với app, SEO không phải điểm chính mà điều quyết định là lượt tải mới, còn SEO web vẫn có thể chạy trên hệ cũ. Hệ bài tin vì vậy lùi sang Phase 2.</li><li>Mô tả và thiết kế phải khớp nhịp với tiến độ của team Dev mà vẫn scale được về sau. Mình giữ nguyên design system và component chuẩn thay vì làm nhanh bằng cách bỏ chuẩn, nên team vừa kịp tiến độ vừa bàn giao đạt chuẩn.</li></ul>
+        <ul class="prose__list"><li>Ban lãnh đạo yêu cầu ra mắt trong 1 đến 2 tháng, trong khi nguồn lực IT và PM có hạn. Để đáp ứng yêu cầu này, mình chia dự án thành hai phase, chọn theo mức độ liên quan đến kinh doanh và chốt qua các buổi họp chung giữa các bên. Phase 1 đưa web và app ra cùng lúc với phần lõi bán lẻ: listing, giỏ hàng, khuyến mãi. Phase 2 gồm tin tức, thông báo, gợi ý sản phẩm, tra cứu bệnh và hoạt chất.</li><li>Giữ SEO tốt nhất cần chuyển hệ thống bài viết sang lõi mới ngay, nhưng như vậy sẽ không đảm bảo tiến độ. Mình cân nhắc lại: với app, SEO không phải điểm chính mà điều quyết định là lượt tải mới, còn SEO web vẫn có thể chạy trên hệ cũ. Hệ thống bài viết vì vậy lùi sang Phase 2.</li><li>Mô tả và thiết kế phải khớp nhịp với tiến độ của team Dev mà vẫn scale được về sau. Giữ nguyên design system và component chuẩn thay vì làm nhanh bằng cách bỏ chuẩn, nên team vừa kịp tiến độ vừa bàn giao đạt chuẩn.</li></ul>
       </section>
       <section class="prose__sec" data-reveal>
-        <h2 class="prose__label">Sau go live</h2>
-        <p>Hệ SEO được chia nhỏ và đưa dần vào hệ mới sau Phase 1. Trong giai đoạn này, traffic web không giảm mạnh dù thị trường chung đang sụt giảm vì AI và GEO. Điều khó hơn là việc vận hành SEO phải chạy song song hai hệ, và chỉ nhẹ dần khi từng hạng mục được chuyển sang hệ mới. Ở phía app, mục tiêu lúc này là lượt tải. Khi xuất hiện tính năng thúc đẩy tải app, cụ thể là voucher giảm giá cho 3 đơn hàng đầu tiên, mình rà lại backlog và lùi lịch go-live của tính năng tra cứu bệnh, vì tính năng này chủ yếu phục vụ SEO và lượng traffic trước đây khá thấp.</p>
+        <h2 class="prose__label">Sau go-live</h2>
+        <p>Hệ thống SEO được chia nhỏ và đưa dần vào hệ mới sau Phase 1. Trong giai đoạn này, traffic web không giảm mạnh dù thị trường chung đang sụt giảm vì AI và GEO (tối ưu hiển thị trên công cụ tìm kiếm AI). Điều khó hơn là việc vận hành SEO phải chạy song song hai hệ, và chỉ nhẹ dần khi từng hạng mục được chuyển sang hệ mới. Ở phía app, mục tiêu lúc này là lượt tải. Khi xuất hiện tính năng thúc đẩy tải app, cụ thể là voucher giảm giá cho 3 đơn hàng đầu tiên, rà lại backlog và lùi lịch go-live của tính năng tra cứu bệnh, vì tính năng này chủ yếu phục vụ SEO và lượng traffic trước đây khá thấp.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Bài học</h2>
-        <p>Cần họp chung Kinh doanh, PM và IT sớm hơn để chốt các concept khuyến mãi bắt buộc của Phase 1, và để cả ba bên thấy ngay loại khuyến mãi nào hệ thống chưa hỗ trợ, thay vì đến sau go live mới phát hiện.</p>
+        <p>Cần họp chung Kinh doanh, PM và IT sớm hơn để chốt các concept khuyến mãi bắt buộc của Phase 1, và để cả ba bên thấy ngay loại khuyến mãi nào hệ thống chưa hỗ trợ, thay vì đến sau go-live mới phát hiện.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Kết quả</h2>
-        <p>Tháng đầu sau launch: 5 tỷ VND doanh thu online (cả web và app) và 73K DAU trung bình của app. Sau 3 tháng go-live: 105K lượt tải lũy kế. Thời gian tải trang và thời gian đưa một khuyến mãi lên live đều ngắn hơn hệ cũ, nhờ loại bỏ các rule hardcode, chuẩn hóa các loại khuyến mãi và quy trình khai báo.</p>
+        <p>Tháng đầu sau khi ra mắt: 5 tỷ VND doanh thu online (cả web và app) và 73K DAU trung bình của app. Sau 3 tháng go-live: 105K lượt tải lũy kế. Thời gian tải trang và thời gian đưa một khuyến mãi lên live đều ngắn hơn hệ cũ, nhờ loại bỏ các rule hardcode, chuẩn hóa các loại khuyến mãi và quy trình khai báo.</p>
       </section>
         </div>
 
@@ -122,7 +122,7 @@
       <div class="inner contact-cta" data-reveal>
         <h2 class="sec-title" id="contact-title">contact</h2>
         <a class="btn-hatch" href="mailto:ducanh3103@gmail.com"><span class="btn-hatch__inner">liên hệ</span></a>
-        <p>Có vấn đề thú vị cần giải? Cứ nhắn.</p>
+        <p>Có bài toán đáng giải? Cùng trao đổi nhé.</p>
       </div>
     </section>
   </main>
