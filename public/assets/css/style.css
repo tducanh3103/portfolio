@@ -739,6 +739,28 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .timeline > div, .skills > div { grid-template-columns: 140px 1fr; }
 }
 
+/* ---------- 8d. Contact ---------- */
+.contact-page { padding-top: 64px; padding-bottom: 40px; }
+.contact-page__intro { max-width: 620px; margin: 0 0 40px; font-weight: 600; }
+.contact-page__reach-label { margin: 0 0 8px; }
+.contact-list { margin: 0; padding: 0; list-style: none; max-width: 520px; }
+.contact-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-list span { flex: 0 0 96px; color: var(--grey); font-size: 12px; font-weight: 600; letter-spacing: .12em; }
+.contact-list .text-link { padding-right: 0; font-size: 14px; }
+.contact-list .text-link::after { display: none; }
+.contact-page__cta { margin: 64px 0 0; text-align: center; }
+@media (min-width: 900px) {
+  .contact-page { padding-top: 96px; padding-bottom: 80px; }
+  .contact-page__cta { text-align: left; margin-top: 72px; }
+}
+
 /* ---------- 9. Hiệu ứng ---------- */
 
 /* A1–A3: hiệu ứng khi tải trang (chạy bằng CSS, không cần JS) */
