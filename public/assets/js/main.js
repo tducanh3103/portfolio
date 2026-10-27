@@ -57,11 +57,19 @@
 
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);   // chỉ chạy một lần
+      var batch = entries.filter(function (e) { return e.isIntersecting; })
+        .map(function (e) { return e.target; })
+        .sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });   // theo thứ tự trong trang
+      // các thẻ [data-stagger] hiện lần lượt theo thứ tự trái → phải, trên → dưới,
+      // kể cả khi nhiều thẻ vào màn hình cùng lúc; nếu tiêu đề khối cũng vào cùng lúc thì chờ tiêu đề trước
+      var headIn = batch.some(function (el) { return el.id === "work-title"; });
+      var n = 0;
+      batch.forEach(function (el) {
+        if (el.hasAttribute("data-stagger")) {
+          el.style.transitionDelay = ((headIn ? 2 : 0) + n++) * 0.2 + "s";
         }
+        el.classList.add("is-in");
+        io.unobserve(el);   // chỉ chạy một lần
       });
     }, { rootMargin: "0px 0px -3% 0px" });   // bắt đầu hiện khi block vừa chạm mép dưới màn hình, chạy dần trong lúc cuộn
     revealEls.forEach(function (el) { io.observe(el); });
