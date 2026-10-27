@@ -90,32 +90,36 @@
         <div class="prose">
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Vấn đề</h2>
-        <p>Tại thị trường Việt Nam, người bệnh ung thư và bệnh hiếm rất khó tìm thuốc, và thường phải mua qua các kênh bán sỉ không rõ nguồn gốc. An Khang muốn giải quyết vấn đề này bằng cách mở một kênh chính thống giúp khách hàng tiếp cận nguồn thuốc có thương hiệu rõ ràng, nguồn gốc uy tín và giá cả minh bạch. Dự án đến tay mình chỉ là một ý tưởng kinh doanh.</p>
+        <p>Tại thị trường Việt Nam, người bệnh ung thư và bệnh hiếm rất khó tìm thuốc, và thường phải mua qua các kênh bán sỉ không rõ nguồn gốc. An Khang muốn giải quyết vấn đề này bằng cách mở một kênh chính thống giúp khách hàng tiếp cận nguồn thuốc có thương hiệu rõ ràng, nguồn gốc uy tín và giá cả minh bạch. Dự án này đến tay mình chỉ là một ý tưởng kinh doanh.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Vai trò</h2>
-        <p>Định hình toàn bộ flow, phối hợp Kinh doanh, Chăm sóc khách hàng, Logistics và Dev. Trực tiếp nghiên cứu, thiết kế UI, viết mô tả tính năng, tổ chức các buổi họp kickoff và các buổi họp đánh giá sau khi go-live.</p>
+        <p>Mình kết nối bán hàng, chăm sóc khách hàng, logistics và đội phát triển để xác định luồng chuẩn từ đầu đến cuối cho tính năng. Đồng thời trực tiếp làm phần nghiên cứu và thiết kế UI, viết specs, tổ chức buổi kickoff và các buổi đánh giá sau go-live.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Cách làm</h2>
-        <p>Bắt đầu bằng việc lắng nghe: phỏng vấn bộ phận kinh doanh và bệnh nhân, nghiên cứu đối thủ để biết cách thức thị trường đang vận hành mô hình này. Rào cản lớn nhất là doanh nghiệp không muốn nhập tồn vì giá trị cao và rủi ro tồn kho lâu ngày. Nhiều phương án được đưa lên bàn, như đặt thẳng không qua tư vấn hay không cần đặt cọc, tất cả được cân đo đong đếm với thực tế vận hành cho đến khi thống nhất được một luồng vận hành tối ưu nhất: Xem trang chi tiết &gt; Điền form &gt; Nhân viên gọi tư vấn &gt; Đặt cọc 100% &gt; Nhập thuốc, giao hàng.</p>
+        <p>Mình bắt đầu bằng việc lắng nghe: phỏng vấn đội bán hàng và người bệnh, nghiên cứu đối thủ để xem thị trường đang vận hành mô hình pre-order ra sao.</p>
+        <p>Trở ngại lớn nhất là doanh nghiệp không muốn giữ tồn kho, vì thuốc có giá trị cao và có nguy cơ tồn lâu không bán được. Nhiều phương án được đưa ra bàn, như cho đặt hàng thẳng không qua tư vấn, hoặc không cần cọc. Mỗi phương án đều được cân nhắc với thực tế vận hành, cho đến khi cả nhóm thống nhất một luồng chạy được:</p>
+        <p>Xem trang sản phẩm → điền form → dược sĩ gọi tư vấn → cọc 100% → tìm nguồn thuốc và giao hàng</p>
+        <p>Khách cọc trước nên không phải giữ hàng khi chưa có người đặt.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Ba ràng buộc dẫn đến ba quyết định thiết kế</h2>
-        <ul class="prose__list"><li>Là thuốc kê đơn với giá thay đổi theo thời điểm, nên trang không niêm yết giá. Nhân viên sẽ báo giá trực tiếp khi gọi tư vấn.</li><li>Vì không có tồn kho, thời gian giao hàng phụ thuộc vào nhà cung cấp và không thể cam kết cố định.</li><li>Điền form và đặt cọc là cách mua hoàn toàn mới với khách hàng, nên phần hướng dẫn phải dễ thấy ngay khi người dùng tra cứu sản phẩm mà không làm dày thêm trang.</li></ul>
-        <p>Vì vậy, đây là một trang chi tiết khác hẳn các trang thuốc thông thường. Lần lượt thử cho thuốc vào giỏ hàng như sản phẩm khác, rồi đặt form ngay trong trang, và cuối cùng chốt phương án form đăng ký cùng toàn bộ luồng UI: từ điền form, thông báo gửi yêu cầu thành công đến danh sách đã đăng ký cùng loại thuốc.</p>
+        <ul class="prose__list"><li>Thuốc kê đơn có giá thay đổi theo thời gian nên trang sản phẩm không hiển thị giá. Dược sĩ báo giá hiện tại trong cuộc gọi tư vấn.</li><li>Không có tồn kho nên thời gian giao phụ thuộc nhà cung cấp, vì vậy trang không hứa ngày giao cố định. Khách được báo rằng thời gian giao sẽ có sau khi dược sĩ gọi lại, ở hai điểm chạm: phần hướng dẫn ngay trên form đăng ký, và thông báo thành công sau khi gửi form.</li><li>Điền form và đặt cọc là cách mua mới nên phần hướng dẫn nằm ngay trên form đăng ký trong trang sản phẩm, dạng dropdown mặc định mở rộng. Khách thấy cách đặt trước ngay khi tìm thuốc, và có thể thu gọn lại để trang không rối.</li></ul>
+        <p>Kết quả là một trang chi tiết hoàn toàn khác các trang thuốc khác. Trang có form đăng ký, và thay cho giá và thời gian giao là phần hướng dẫn rõ ràng cùng thông báo thành công chi tiết.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Sau khi go-live</h2>
-        <p>Nghe lại các cuộc gọi tư vấn cho thấy khách bất ngờ khi cần đặt cọc 100% giá trị đơn hàng, hoặc không hài lòng vì thời gian giao hàng quá lâu. Thông tin đặt cọc và lưu ý giao hàng vì vậy được đưa lên trang. Song song đó, làm việc với team tư vấn để rút ngắn thời gian gọi lại cho khách.</p>
+        <p>Nghe lại các cuộc gọi tư vấn, mình thấy khách bất ngờ vì phải cọc 100% và khó chịu vì giao hàng lâu. Mình cũng nhận ra việc gọi lại đang bị trễ. Lúc ra mắt, trang mới chỉ có hướng dẫn chung, nên đã bổ sung ghi chú đặt cọc và thời gian giao dự kiến cho đầy đủ thông tin. Cuối cùng, đã phối hợp với đội dược sĩ để tinh gọn quy trình gọi lại và rút ngắn thời gian chờ của khách.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Bài học</h2>
-        <ul class="prose__list"><li>Nghe lại cuộc gọi tư vấn là nguồn insight rất tốt để cải thiện UI và vận hành của một tính năng mới.</li><li>Ra mắt chưa phải là kết thúc. Chủ động theo dõi vận hành và họp với các bộ phận liên quan để cải thiện quy trình mới giúp tính năng hoàn thiện và thật sự tạo ra giá trị.</li></ul>
+        <ul class="prose__list"><li>Nghe lại các cuộc gọi tư vấn là nguồn thông tin phong phú để cải thiện UI và vận hành của một tính năng mới.</li><li>Ra mắt chưa phải điểm kết thúc. Một tính năng chỉ trưởng thành và tạo ra giá trị thật khi vận hành được theo dõi chủ động và các đội liên quan cùng nhau cải tiến quy trình.</li></ul>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Kết quả</h2>
-        <p>Tháng đầu, khách hàng có gửi form đặt hàng nhưng không có đơn hàng nào được đặt cọc thành công. Từ tháng thứ hai, đơn bắt đầu đổ về, và nhóm hàng này vẫn vận hành ổn định, đóng góp doanh thu đều đặn và tăng trưởng. Thời gian phản hồi giảm từ một tuần xuống khoảng 24 giờ, nhanh nhất có đơn được phản hồi trong vòng 2 giờ so với mục tiêu 48 giờ. Giá trị trung bình đơn hàng cao gấp hàng chục lần đơn hàng bình thường.</p>
+        <p>Trong tháng đầu, khách có gửi form đăng ký nhưng chưa đơn nào hoàn tất đặt cọc. Từ tháng thứ hai, đơn bắt đầu tăng khi ghi chú đặt cọc, thời gian giao dự kiến và việc gọi lại nhanh hơn đã đi vào hoạt động. Có lẽ khách cũng dần quen với việc đặt trước, và kênh này vẫn mang về doanh thu đều và tăng dần từ đó đến nay. Đáng chú ý, giá trị đơn trung bình cao gấp hàng chục lần một đơn thông thường trên nền tảng.</p>
+        <p>Về vận hành, thời gian phản hồi gọi lại giảm từ một tuần xuống còn khoảng 24 giờ, những ca nhanh nhất được trả lời trong vòng 2 giờ, so với mục tiêu 48 giờ.</p>
       </section>
         </div>
 
