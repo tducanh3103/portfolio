@@ -63,7 +63,7 @@
           io.unobserve(entry.target);   // chỉ chạy một lần
         }
       });
-    }, { rootMargin: "0px 0px -10% 0px" });
+    }, { rootMargin: "0px 0px -3% 0px" });   // bắt đầu hiện khi block vừa chạm mép dưới màn hình, chạy dần trong lúc cuộn
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-in"); });

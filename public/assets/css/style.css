@@ -309,6 +309,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   height: 1px;
   background: var(--ink);
 }
+/* vạch kẻ hiện cùng lúc với tiêu đề (cùng thời gian, cùng độ trễ) */
+.js .title-rule::before {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .9s cubic-bezier(.645, .045, .355, 1);
+  transition-delay: calc(var(--rule-i, 0) * .2s);
+}
+.js .title-rule:has(> .is-in)::before { clip-path: inset(0 0 0 0); }
+@media (prefers-reduced-motion: reduce) { .js .title-rule::before { clip-path: none; } }
 @media (max-width: 899.98px) { .title-rule::before { display: none; } }   /* Figma mobile không có vạch */
 
 /* C2: link chữ có gạch dưới: "view all", "more about me" */
@@ -360,14 +368,25 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   line-height: 1.4;
   transition: color .3s ease-out;
 }
+/* Bóng sọc: hai dải riêng (bên phải, bên dưới), mỗi nét chéo cắt ngang đúng bề rộng dải nên mọi nét dài bằng nhau */
+.btn-hatch::before,
 .btn-hatch::after {
   content: "";
   position: absolute;
-  inset: 0;
   z-index: -1;
-  border-radius: 8px;
-  transform: translate(5px, 5px);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='160'%3E%3Cpath d='M-160 0L0 160M-154 0L6 160M-148 0L12 160M-142 0L18 160M-136 0L24 160M-130 0L30 160M-124 0L36 160M-118 0L42 160M-112 0L48 160M-106 0L54 160M-100 0L60 160M-94 0L66 160M-88 0L72 160M-82 0L78 160M-76 0L84 160M-70 0L90 160M-64 0L96 160M-58 0L102 160M-52 0L108 160M-46 0L114 160M-40 0L120 160M-34 0L126 160M-28 0L132 160M-22 0L138 160M-16 0L144 160M-10 0L150 160M-4 0L156 160M2 0L162 160M8 0L168 160M14 0L174 160M20 0L180 160M26 0L186 160M32 0L192 160M38 0L198 160M44 0L204 160M50 0L210 160M56 0L216 160M62 0L222 160M68 0L228 160M74 0L234 160M80 0L240 160M86 0L246 160M92 0L252 160M98 0L258 160M104 0L264 160M110 0L270 160M116 0L276 160M122 0L282 160M128 0L288 160M134 0L294 160M140 0L300 160M146 0L306 160M152 0L312 160M158 0L318 160M164 0L324 160M170 0L330 160M176 0L336 160M182 0L342 160M188 0L348 160M194 0L354 160M200 0L360 160M206 0L366 160M212 0L372 160M218 0L378 160M224 0L384 160M230 0L390 160M236 0L396 160M242 0L402 160M248 0L408 160M254 0L414 160M260 0L420 160M266 0L426 160M272 0L432 160M278 0L438 160M284 0L444 160M290 0L450 160M296 0L456 160M302 0L462 160M308 0L468 160M314 0L474 160M320 0L480 160M326 0L486 160M332 0L492 160M338 0L498 160M344 0L504 160M350 0L510 160M356 0L516 160M362 0L522 160M368 0L528 160M374 0L534 160M380 0L540 160M386 0L546 160M392 0L552 160M398 0L558 160M404 0L564 160M410 0L570 160M416 0L576 160M422 0L582 160M428 0L588 160M434 0L594 160M440 0L600 160M446 0L606 160M452 0L612 160M458 0L618 160M464 0L624 160M470 0L630 160M476 0L636 160M482 0L642 160M488 0L648 160M494 0L654 160M500 0L660 160M506 0L666 160M512 0L672 160M518 0L678 160M524 0L684 160M530 0L690 160M536 0L696 160M542 0L702 160M548 0L708 160M554 0L714 160M560 0L720 160M566 0L726 160M572 0L732 160M578 0L738 160M584 0L744 160M590 0L750 160M596 0L756 160M602 0L762 160M608 0L768 160M614 0L774 160M620 0L780 160M626 0L786 160M632 0L792 160M638 0L798 160' stroke='%23000' stroke-width='1.2' fill='none'/%3E%3C/svg%3E") 0 0 / 640px 160px no-repeat;
+}
+.btn-hatch::before {   /* dải bên phải, lấn 4px vào dưới viền nút để nét chạm sát viền */
+  right: -8px; bottom: 0; width: 12px;
+  height: calc(100% - 3px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='9'%3E%3Cpath d='M4 0L13 9M-5 0L4 9' stroke='%23000' stroke-width='1.2' fill='none'/%3E%3C/svg%3E") 0 100% / 12px 9px repeat-y;
+  clip-path: polygon(4px 0.5px, 100% 8.5px, 100% 100%, 0 100%, 0 8px, 4px 8px);   /* cắt chéo song song với nét để không sót mẩu nét phía trên nét đầu tiên */
+}
+.btn-hatch::after {    /* dải bên dưới, cao thêm 3px lên phía trên để nét chạm tới viền bo ở góc nút */
+  right: -8px; bottom: -8px; height: 11px;
+  width: calc(100% + 8px);
+  width: round(down, calc(100% + 8px), 9px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='11'%3E%3Cpath d='M-3 -1L9 11M6 -1L12 5' stroke='%23000' stroke-width='1.2' fill='none'/%3E%3C/svg%3E") 100% 100% / 9px 11px repeat-x;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4.7px), calc(100% - 4.7px) 100%, 0 100%);   /* vát góc: nét ở góc dài bằng các nét khác */
 }
 .btn-hatch__inner {
   position: relative;
@@ -444,11 +463,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   text-align: center;
 }
 .contact-cta .sec-title {
-  transform: translateY(-.55em);   /* chữ "contact" đè lên mép trên khối */
+  position: relative;
+  top: -.58em;   /* chữ "contact" đè lên mép trên khối (dùng top, không dùng transform để không vướng hiệu ứng nổi lên) */
   margin-bottom: 4px;
 }
 .contact-cta p {
-  max-width: 440px;
+  max-width: 660px;
   margin: 36px auto 0;
 }
 @media (min-width: 900px) {
@@ -491,7 +511,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   padding: 28px 0 0;
 }
 .hero__title {
-  font-size: 18px;
+  font-size: 15px;
+  text-wrap: balance;
   font-weight: 600;
   line-height: 2.1;
   letter-spacing: .08em;
@@ -511,12 +532,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__box {
     position: absolute;
     right: 0;
-    top: calc(100% - 206px);
+    top: calc(100% - 190px);
     width: 40%;
     min-width: 420px;
     padding: 40px 0 0 48px;
   }
-  .hero__title { font-size: 20px; }
+  .hero__title { font-size: clamp(11px, 1.25vw, 15px); }   /* câu dài hơn: co theo bề rộng để luôn nằm trên 2 dòng */
 }
 
 /* Giới thiệu ngắn: bố cục khối "weird me" */
@@ -558,6 +579,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .intro__text { margin-top: 32px; }
 .intro__text .label { margin-bottom: 28px; }
+.intro__p2 { margin-top: 32px; }
 .intro__more { text-align: right; margin-top: 12px; }
 
 @media (min-width: 900px) {
@@ -568,7 +590,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     gap: 80px;
   }
   .intro__photo { order: 2; width: 100%; justify-self: stretch; }
-  .intro__body { max-width: 420px; }
+  .intro__body { max-width: none; }
+  .intro__text { max-width: 420px; }
+  .intro__more { margin-right: -32px; }   /* link sát ảnh chân dung hơn */
   .spaced-title { font-size: 48px; }
 }
 
@@ -645,6 +669,25 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .work { padding-top: 200px; }
   .work__head { margin-bottom: 48px; }
   .work__grid { grid-template-columns: 1fr 1fr; gap: 60px; }
+}
+
+/* Khối contact: nút to hơn (bóng sọc là một ảnh 640×160 nên nút không vượt quá cỡ này) */
+.contact-cta .btn-hatch { font-size: 16px; }
+.contact-cta .btn-hatch__inner { min-width: 340px; min-height: 71px; padding: 16px 36px; }
+@media (max-width: 480px) { .contact-cta .btn-hatch__inner { min-width: 0; width: 100%; } .contact-cta .btn-hatch { display: block; max-width: 340px; margin: 0 auto; } }
+
+/* Trang chủ: khối work chỉ có ảnh cover + đoạn giới thiệu */
+.work--covers .card__meta,
+.work--covers .card__title,
+.work--covers .card__summary {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.work--covers .work__grid { gap: 48px; }
+@media (min-width: 900px) {
+  .work--covers .work__grid { gap: 60px; }
+  /* thẻ bên phải đi lên quãng dài hơn nên cảm giác đến sau thẻ bên trái */
+  .work--covers .work__grid li:nth-child(even) { --float-dist: 100px; }
 }
 
 /* ---------- 8b. Trang trong (Work, case study) ---------- */
@@ -842,9 +885,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   to   { opacity: 1; transform: none; }
 }
 
-.hero__media   { animation: slide-in-left 1.6s var(--ease-out) both; }
-.hero__box     { animation: float-up 1s ease .3s both; }
-.hero__caption { animation: slide-in-right 2s var(--ease-out) 1.2s both; }   /* bắt đầu khi ảnh hero sắp vào vị trí */
+.hero__media   { animation: slide-in-left 1.6s var(--ease-out) .4s both; }   /* cả khối hero chờ một chút rồi mới vào */
+.hero__box     { animation: float-up 1s ease .7s both; }
+.hero__caption { animation: slide-in-right 1.4s var(--ease-out) 1s both; }   /* cùng lúc ô bên phải (.7s), chậm hơn một chút */
 
 /* B1/B2: nổi lên khi cuộn tới. Chỉ ẩn khi JS đã chạy (class .js trên <html>) */
 .js [data-reveal] {
@@ -863,6 +906,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   transform: none;
   clip-path: inset(0 100% 0 0);
   transition: clip-path .9s cubic-bezier(.645, .045, .355, 1);
+  transition-delay: calc(var(--i, 0) * .2s);
 }
 .js [data-reveal="clip"].is-in { clip-path: inset(0 0 0 0); }
 /* vạch kẻ của tiêu đề nằm ngoài khung clip nên tách ra lớp cha */
