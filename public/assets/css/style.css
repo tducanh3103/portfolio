@@ -805,7 +805,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   margin-top: 24px;
 }
 .case__nav .btn { flex: 1 1 0; min-width: 96px; }
-@media (min-width: 900px) { .case__nav .btn { flex: 0 0 auto; min-width: 140px; } }
+.case__nav .btn:nth-child(2) { flex-grow: 1.6; }   /* all work dài hơn previous / next */
+@media (min-width: 900px) { .case__nav .btn { flex: 0 0 auto; min-width: 140px; } .case__nav .btn:nth-child(2) { flex: 0 0 auto; min-width: 240px; } }
 
 /* ---------- 8c. About ---------- */
 .about-hero { padding-top: 64px; }
