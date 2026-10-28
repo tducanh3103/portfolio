@@ -464,7 +464,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .contact-cta .sec-title {
   position: relative;
-  top: -.58em;   /* chữ "contact" đè lên mép trên khối (dùng top, không dùng transform để không vướng hiệu ứng nổi lên) */
+  top: -.70em;   /* chữ "contact" đè lên mép trên khối (dùng top, không dùng transform để không vướng hiệu ứng nổi lên) */
   margin-bottom: 4px;
 }
 .contact-cta p {
