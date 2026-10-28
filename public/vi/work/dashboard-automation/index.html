@@ -90,35 +90,42 @@
         <div class="prose">
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Vấn đề</h2>
-        <p>Mỗi lần cần xem số liệu sức khỏe của web và app, các bên phải nhờ team PM chuẩn bị. Đến phần mình, team PM lại phải gom số từ nhiều nguồn, nhập tay mỗi ngày khoảng 15 đến 20 phút, rồi chụp màn hình hoặc xuất PDF từ file báo cáo để gửi đến các stakeholder. Báo cáo tháng mất 1 đến 3 giờ nếu làm liên tục, nhưng khi xen kẽ các việc khác thì có thể kéo dài 3 đến 4 ngày mới xong.</p>
+        <p>Mỗi khi các bên liên quan cần số liệu sức khỏe kinh doanh của web và app, họ phải nhờ đội PM chuẩn bị báo cáo.</p>
+        <p>Báo cáo hàng ngày thường mất khoảng 15 đến 20 phút: lấy số từ nhiều nguồn, nhập tay, rồi chụp màn hình hoặc xuất PDF từ file báo cáo để gửi đi.</p>
+        <p>Báo cáo hàng tháng mất 1 đến 3 giờ nếu làm một lèo, nhưng xen kẽ với công việc khác thì có thể kéo dài 3 đến 4 ngày.</p>
+        <p>Ngoài ra, việc kiểm tra và chỉnh sửa số liệu mất khoảng 30 phút mỗi lần, chừng mười lần mỗi tháng. Nhập tay từ nhiều nguồn dễ sai và không nhất quán, lại không có tài liệu hướng dẫn nên khó bàn giao.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Vai trò</h2>
-        <p>Phụ trách toàn bộ dự án: quan sát việc hằng ngày để thấy điểm có thể tự động hóa, xác định hướng làm với sự trợ giúp của AI, gom nguồn dữ liệu, viết Google Apps Script (GAS) và trang báo cáo HTML, đưa lên GitHub Pages, cải tiến theo góp ý và viết tài liệu bàn giao. Trước đó chưa có kinh nghiệm viết code, nên mọi phần đều làm cùng AI, xây và sửa dần từng bước.</p>
+        <p>Mình phụ trách dự án từ đầu đến cuối, từ việc phát hiện khâu nào của báo cáo hàng ngày có thể tự động hóa đến viết tài liệu bàn giao. Trong quá trình đó, tổng hợp các nguồn dữ liệu, xây dựng phần tự động hóa bằng Google Apps Script và báo cáo HTML, đăng lên GitHub Pages và cải tiến theo phản hồi. Mình chưa từng có nền tảng lập trình nên đã tận dụng AI để hỗ trợ trong mọi phần của quá trình xây dựng.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Cách làm</h2>
-        <p>Bắt đầu bằng việc thay bước nhập số liệu thủ công bằng tự động hóa với GAS. GAS chạy 2 lần mỗi ngày, làm sạch số liệu, ghi vào một kho chung và kết nối API để lấy thêm sessions và tỷ lệ chuyển đổi từ GA4. Báo cáo là một trang web dạng HTML, dùng ngôn ngữ thiết kế của báo cáo thường niên tập đoàn để lãnh đạo thấy quen thuộc và dễ đọc. Bộ phận kinh doanh xem báo cáo hằng ngày để lên chương trình bán hàng hoặc dồn ngân sách cho kênh đang yếu như kênh sàn; team PM theo dõi traffic và lượt tải để đề xuất tính năng đẩy traffic hoặc chương trình thúc đẩy tải app; CEO và CTO xem báo cáo tháng để định hướng.</p>
+        <p>Dự án bắt đầu bằng việc thay việc nhập số liệu thủ công bằng tự động hóa. Đoạn script chạy hai lần mỗi ngày, làm sạch dữ liệu, ghi vào một kho dữ liệu chung và lấy số phiên truy cập cùng tỷ lệ chuyển đổi từ GA4 qua API. Báo cáo là một trang HTML duy nhất, thiết kế theo ngôn ngữ của các báo cáo thường niên của Mobile World Group để lãnh đạo thấy quen thuộc và dễ đọc.</p>
+        <p>Mỗi nhóm đọc báo cáo để phục vụ quyết định của mình. Đội bán hàng dùng báo cáo hàng ngày để lên kế hoạch khuyến mãi hoặc nâng đỡ các kênh đang yếu như sàn thương mại điện tử. Đội PM theo dõi lượng truy cập và lượt tải app để đề xuất tính năng kéo truy cập hoặc chương trình thúc đẩy cài đặt app. CEO và CTO đọc báo cáo hàng tháng để xem doanh nghiệp đang hoạt động ra sao và quyết định nên tập trung vào đâu tiếp theo.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Ba quyết định quan trọng</h2>
-        <ul class="prose__list"><li>Mở rộng từ báo cáo hằng ngày sang báo cáo hằng tháng. Mình nhận ra báo cáo tháng về bản chất là tổng hợp của báo cáo hằng ngày, cộng thêm nhận định tăng trưởng và kế hoạch công việc tháng tiếp theo, nên cùng một kho dữ liệu phục vụ được cả hai báo cáo.</li><li>Tạo một trang HTML để các stakeholder tự truy cập, thay cho ảnh hay PDF gửi tay, giúp các bên xem báo cáo bất cứ lúc nào cần.</li><li>Dùng công cụ miễn phí, có mật khẩu, phù hợp nhất với quy mô sử dụng nội bộ (Google Sheets, GAS, GitHub Pages). Chi phí chỉ phát sinh một lần lúc xây dựng, dành cho gói AI.</li></ul>
+        <ul class="prose__list"><li>Mở rộng từ báo cáo hàng ngày sang báo cáo hàng tháng. Mình nhận ra báo cáo hàng tháng về cơ bản là báo cáo hàng ngày cộng thêm phần nhận xét tăng trưởng và kế hoạch công việc tháng sau, nên một kho dữ liệu chung có thể phục vụ cả hai.</li><li>Tạo một trang HTML để các bên liên quan tự mở xem, thay cho việc gửi ảnh chụp màn hình và PDF thủ công, để họ kiểm tra báo cáo bất cứ khi nào cần.</li><li>Dùng các công cụ miễn phí, có bảo vệ bằng mật khẩu, phù hợp cho dùng nội bộ: Google Sheets, Google Apps Script và GitHub Pages. Chi phí duy nhất là một gói AI trả một lần trong lúc xây dựng.</li></ul>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Khó khăn</h2>
-        <p>Code do model AI đầu tiên viết chưa đạt chất lượng, nên phải đổi cả model lẫn công cụ AI và viết lại từ đầu. AI mới tiếp quản code cũ nên phát sinh lỗi logic và cách viết không đồng nhất, khiến số liệu khi nghiệm thu sai lệch nhiều. Cách gỡ: đối chiếu với số làm tay, khi phát hiện sai sót thì yêu cầu AI tìm lỗi và viết lại, rồi rà toàn bộ code để đồng bộ cách viết, thêm comment và viết tài liệu bàn giao.</p>
+        <p>Code từ mô hình AI đầu tiên chưa đủ tốt, nên mình chuyển sang cả mô hình lẫn công cụ AI khác. AI mới phải làm tiếp trên code cũ, dẫn đến lỗi logic và phong cách code thiếu nhất quán, và đến lúc nghiệm thu số liệu không khớp với số làm tay.</p>
+        <p>Để khắc phục, mình đối chiếu kết quả với số làm tay. Mỗi khi có chỗ lệch, mình nhờ AI tìm lỗi và viết lại phần đó, cho đến khi số khớp. Cuối cùng, cho AI rà lại toàn bộ code để đồng nhất, thêm chú thích và viết tài liệu bàn giao.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Sau go-live</h2>
-        <p>CTO xem báo cáo trong buổi họp định kỳ hằng tháng và góp ý bổ sung phần kế hoạch công việc đã làm và sẽ làm vì bản đầu chưa có, giúp cấp quản lý đủ góc nhìn để quyết định. Bộ phận kinh doanh dùng báo cáo để trình bày mảng online với BOD. Các site khác trong tập đoàn cũng tham khảo cách làm và xin template để áp dụng cho site của mình.</p>
+        <p>Đối với báo cáo hàng tháng, CTO đề xuất bổ sung phần các đầu việc đã hoàn thành và dự kiến mà bản đầu còn thiếu, để báo cáo rõ ràng hơn và dễ dùng để ra quyết định hơn.</p>
+        <p>Đội bán hàng cũng dùng báo cáo để trình bày mảng kinh doanh online với hội đồng quản trị, và hội đồng khen cách thể hiện này, đồng thời yêu cầu các site khác trong tập đoàn dùng mẫu báo cáo đó.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Bài học</h2>
-        <ul class="prose__list"><li>Đối với công việc hằng ngày đã quen thuộc và dần trở thành thói quen thì rất khó nhận ra sự thiếu hiệu quả trong cách triển khai. Vì vậy cần quan sát kỹ và nhìn lại đủ sâu để tìm ra điểm có thể cải thiện.</li><li>Nếu được làm lại, mình sẽ chọn thật kỹ công cụ AI ngay từ đầu và giữ một AI viết code tốt xuyên suốt dự án, để code nhất quán và không phải viết lại nhiều lần.</li></ul>
+        <ul class="prose__list"><li>Khi công việc hàng ngày đã thành thói quen, sự kém hiệu quả trở nên khó thấy. Muốn tìm ra điều có thể cải thiện, cần quan sát kỹ và suy ngẫm thấu đáo.</li><li>Với AI, điểm nghẽn chuyển từ kỹ năng sang ý tưởng: dù không có nền tảng lập trình, mình vẫn hoàn thiện được một trang HTML dùng nội bộ.</li><li>Nếu làm lại, mình sẽ chọn một AI lập trình thật mạnh ngay từ đầu và gắn bó với nó suốt dự án, để mã nguồn nhất quán và không phải viết lại.</li></ul>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Kết quả</h2>
-        <p>Báo cáo hằng ngày giảm từ khoảng 15 đến 20 phút nhập tay mỗi ngày xuống 0 phút (tự động hóa hoàn toàn). Báo cáo tháng giảm từ 1 đến 3 giờ công xuống còn khoảng 5 phút kiểm tra và viết nhận định. Tiết kiệm khoảng 11 đến 15 giờ mỗi tháng, tức 132 đến 180 giờ mỗi năm.</p>
+        <p>Việc tự động hóa giúp đội PM lấy lại khoảng 11 đến 15 giờ mỗi tháng, tức chừng 130 đến 180 giờ mỗi năm.</p>
+        <p>Báo cáo cũng được các team ở những site khác trong tập đoàn học hỏi và, quan trọng hơn, áp dụng vào báo cáo của họ.</p>
       </section>
         </div>
 

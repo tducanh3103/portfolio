@@ -90,35 +90,42 @@
         <div class="prose">
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Problem</h2>
-        <p>Whenever anyone needed health metrics for the web and app, they had to ask the PM team to prepare them. The PM team then had to pull figures from several sources, type them in by hand for about 15 to 20 minutes every day, and take screenshots or export PDFs from the report file to send to stakeholders. The monthly report took 1 to 3 hours if done in one go, but with other work in between it could stretch to 3 to 4 days.</p>
+        <p>Whenever stakeholders needed business health metrics for the web and app, they had to ask the PM team to prepare reports.</p>
+        <p>The daily report normally took about 15 to 20 minutes: pulling figures from several sources, typing them in by hand, then taking screenshots or exporting PDFs from the report file to send out.</p>
+        <p>The monthly report took 1 to 3 hours in one sitting, but with other work in between it could stretch to 3 to 4 days.</p>
+        <p>On top of that, checking and correcting the figures took around 30 minutes each time, roughly ten times a month. Entering figures by hand from several sources was error-prone and inconsistent, and with no guide to follow, the process was hard to hand over.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Role</h2>
-        <p>I was responsible for the whole project: spotting what could be automated in daily work, defining the approach with AI&#x27;s help, consolidating the data sources, writing Google Apps Script (GAS) and the HTML report, publishing on GitHub Pages, improving it from feedback, and writing the handover documentation. I had no coding experience before, so every part was built with AI, step by step.</p>
+        <p>I owned this project end to end, from spotting what could be automated in daily reporting to writing the handover documentation. Along the way I consolidated the data sources, built the automation in Google Apps Script and the HTML report, published it on GitHub Pages, and improved it based on feedback. I had no coding background, so I made full use of AI to support me through every part of the build.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Approach</h2>
-        <p>It started by replacing manual data entry with automation using GAS. GAS runs twice a day, cleans the data, writes it to one shared store, and connects through an API to pull in sessions and conversion rate from GA4. The report is a single HTML web page, using the design language of the group&#x27;s annual reports so leadership finds it familiar and easy to read. The sales team uses the daily report to plan promotions or shift budget toward a weak channel such as marketplaces; the PM team tracks traffic and app downloads to propose traffic-driving features or app-install programs; the CEO and CTO read the monthly report to set direction.</p>
+        <p>The project started by replacing manual data entry with automation. The script runs twice a day, cleans the data, writes it to one shared data store, and pulls sessions and conversion rate from GA4 through an API. The report is a single HTML page, styled after Mobile World Group&#x27;s annual reports so leadership finds it familiar and easy to read.</p>
+        <p>Each team reads it for its own decisions. The sales team uses the daily report to plan promotions or lift underperforming channels such as marketplaces. The PM team tracks traffic and app downloads to propose traffic-driving features or app-install programs. The CEO and CTO read the monthly report to see how the business is performing and decide where to focus next.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Three key decisions</h2>
-        <ul class="prose__list"><li>Extend from the daily report to the monthly report. I realized the monthly report is essentially the daily report plus growth commentary and next month&#x27;s work plan, so one shared data store could serve both.</li><li>Create an HTML page that every stakeholder can open themselves, replacing screenshots and PDFs sent by hand, so they can check the report whenever they need it.</li><li>Use free, password-protected tools, the best fit for internal use (Google Sheets, GAS, GitHub Pages). The only cost was a one-time cost at build, for an AI plan.</li></ul>
+        <ul class="prose__list"><li>Extend the daily report into the monthly report. I realized the monthly report is essentially the daily report plus growth commentary and next month&#x27;s work plan, so one shared data store could serve both.</li><li>Create an HTML page that stakeholders can open on their own, replacing screenshots and PDFs sent by hand, so they can check the report whenever needed.</li><li>Use free, password-protected tools that suit internal use: Google Sheets, Google Apps Script and GitHub Pages. The only cost was a one-time AI plan during the build.</li></ul>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Challenges</h2>
-        <p>The code from the first AI model was not good enough, so I had to switch both the model and the AI tool and rewrite from scratch. The new AI took over the old code, which led to logic errors and inconsistent coding styles, and the numbers were far off at acceptance. To fix it, I compared against the manual numbers; whenever something was off, I had the AI find the error and rewrite, then review the whole codebase for consistency, add comments, and write the handover documentation.</p>
+        <p>The code from the first AI model was not good enough, so I switched both the model and the AI tool. The new AI had to build on the old code, which led to logic errors and inconsistent coding styles, and at acceptance the numbers did not match the manual ones.</p>
+        <p>To fix it, I compared the output against the manual numbers. Whenever something was off, I had the AI find the error and rewrite that part, until the numbers matched. Finally, I had it review the whole codebase for consistency, add comments, and write the handover documentation.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">After go-live</h2>
-        <p>The CTO reviewed the report in the regular monthly meeting and suggested adding a section on work done and planned, which the first version lacked, so managers would have the full picture to decide. The sales team used the report to present the online business to the BOD. Other sites in the group also looked to the approach and asked for the template to apply to their own sites.</p>
+        <p>For the monthly report, the CTO suggested adding a section on completed and planned tasks that the first version lacked so the report would be clearer and more actionable.</p>
+        <p>The sales team also used the report to present the online business to the board of directors, who praised how it was presented and asked other sites in the group to adopt the template.</p>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Lessons</h2>
-        <ul class="prose__list"><li>With daily work that has become familiar and turned into habit, it is hard to notice inefficiency in how it is done. So it takes close observation and reflection deep enough to find what can be improved.</li><li>If I did it again, I would choose the AI tool carefully from the start and keep one strong coding AI throughout the project, so the code stays consistent and doesn&#x27;t need rewriting.</li></ul>
+        <ul class="prose__list"><li>When daily work becomes habit, inefficiency becomes hard to see. Finding what can be improved takes close observation and thoughtful reflection.</li><li>With AI, the bottleneck shifts from skill to ideas: even without a coding background, I could deliver a working HTML page for internal use.</li><li>If I did it again, I would pick one strong coding AI at the start and stay with it throughout the project, so the code stays consistent and doesn&#x27;t need rewriting.</li></ul>
       </section>
       <section class="prose__sec" data-reveal>
         <h2 class="prose__label">Results</h2>
-        <p>The daily report went from about 15 to 20 minutes of manual entry per day to zero (fully automated). The monthly report went from 1 to 3 hours of work to about 5 minutes of review and commentary. That saves roughly 11 to 15 hours a month, or 132 to 180 hours a year.</p>
+        <p>Automation gives the PM team back about 11 to 15 hours a month, or roughly 130 to 180 hours a year.</p>
+        <p>The report has also been picked up by teams at other sites in the group, who learned from it and, more importantly, applied it to their own reporting.</p>
       </section>
         </div>
 
