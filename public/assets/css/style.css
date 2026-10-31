@@ -50,14 +50,14 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 2;
   letter-spacing: .06em;
   text-transform: lowercase;   /* toàn bộ chữ viết thường như Figma */
   overflow-x: clip;        /* cho vạch kẻ chạy ra mép trái mà không tạo thanh cuộn ngang */
 }
 
-strong, b { font-weight: 600; }   /* chỉ nạp hai độ đậm 400 và 600 để tải nhanh */
+strong, b { font-weight: 600; }   /* chỉ nạp hai độ đậm 300 và 600 để tải nhanh */
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 p { margin: 0 0 1em; }
@@ -419,11 +419,20 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .site-footer { padding: 100px 0 40px; }
 @media (min-width: 900px) { .site-footer { padding-top: 160px; } }
 
+.site-footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin: 0 0 24px;
+}
+.site-footer__top .logo { font-size: 32px; }
+.site-footer__top .logo::before { width: 5px; height: 5px; }
 .site-footer__nav {
   display: flex;
   justify-content: flex-end;
   gap: 40px;
-  margin: 0 0 24px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -445,12 +454,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .copyright { margin: 0; }
 
 .social { display: flex; align-items: center; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.social li + li::before { content: "/"; margin-right: 12px; color: var(--ink); font-weight: 400; }
+.social li + li::before { content: "/"; margin-right: 12px; color: var(--ink); font-weight: 300; }
 .social a { transition: color .3s ease-out; }
 @media (hover: hover) { .social a:hover { color: var(--grey); } }
 
 @media (max-width: 899.98px) {
   .site-footer__nav { display: none; }
+  .site-footer__top { justify-content: center; margin-bottom: 32px; }
   .site-footer__bottom { justify-content: center; text-align: center; flex-direction: column-reverse; }
 }
 
@@ -501,7 +511,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero__caption {
   margin: 12px 0 0;
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: .16em;
   line-height: 1.7;
 }
@@ -694,8 +704,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Khung tiêu đề trang: viền đen dày, chữ giãn rộng + dòng phụ nhỏ bên cạnh */
 .page-title {
-  border: 4px solid var(--ink);
-  padding: 36px 28px;
+  border: 8px solid var(--black);   /* viền đậm như bản Wix cũ */
+  margin-top: 24px;                 /* cách header xa hơn */
+  padding: 44px 28px;
   animation: frame-in .9s var(--ease-out) both;   /* cả khung rơi xuống từ trên */
 }
 .page-title__text {
@@ -717,11 +728,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .page-title__sub {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: .12em;
 }
 @media (min-width: 900px) {
-  .page-title { padding: 52px 108px; }
+  .page-title { margin-top: 44px; padding: 64px 108px; }
   .page-title__text { font-size: 48px; }
 }
 
@@ -810,39 +821,39 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- 8c. About ---------- */
 .about-hero { padding-top: 64px; }
-.about-hero__grid { display: grid; gap: 40px; }
+.about-hero__grid { display: grid; gap: 56px; }
 .about-hero__photo { width: 72%; aspect-ratio: 1; justify-self: end; }
 
-.details { margin: 40px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .12em; line-height: 2.2; }
+.details { margin: 56px 0 0; font-size: 12px; font-weight: 600; letter-spacing: .12em; line-height: 2.8; }
 .details div { display: flex; gap: 20px; }
 .details dt { flex: 0 0 96px; color: var(--grey); }
 .details dd { margin: 0; }
-.about-hero__cv { margin: 24px 0 0; }
+.about-hero__cv { margin: 40px 0 0; }
 
 .about { padding-top: 72px; }
-.about-sec { display: grid; gap: 12px; padding-top: 48px; margin-top: 48px; border-top: 1px solid var(--ink); }
+.about-sec { display: grid; gap: 20px; padding-top: 56px; margin-top: 72px; border-top: 1px solid var(--ink); }
 .about-sec:first-child { margin-top: 0; }
 .about-sec .prose__label { justify-self: start; align-self: start; margin: 0; }
-.about-sec__body p { margin: 0 0 1.2em; max-width: 620px; }
+.about-sec__body p { margin: 0 0 1.6em; max-width: 620px; }
 .about-sec__body > :last-child { margin-bottom: 0; }
 
 .timeline, .skills { margin: 0; max-width: 680px; }
-.timeline > div, .skills > div { display: grid; gap: 0 24px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.timeline > div, .skills > div { display: grid; gap: 4px 24px; padding: 18px 0; }
 .timeline dt, .skills dt { font-weight: 600; }
 .timeline dd, .skills dd { margin: 0; }
 
 @media (min-width: 900px) {
-  .about-hero { padding-top: 96px; }
-  .about-hero__grid { grid-template-columns: 1fr 372px; align-items: start; gap: 80px; }
+  .about-hero { padding-top: 120px; }
+  .about-hero__grid { grid-template-columns: 1fr 372px; align-items: start; gap: 112px; }
   .about-hero__photo { width: 100%; }
-  .about { padding-top: 120px; }
-  .about-sec { grid-template-columns: 200px 1fr; gap: 40px; }
+  .about { padding-top: 168px; }
+  .about-sec { grid-template-columns: 200px 1fr; gap: 48px; padding-top: 72px; margin-top: 96px; }
   .timeline > div, .skills > div { grid-template-columns: 140px 1fr; }
 }
 
 /* ---------- 8d. Contact ---------- */
 .contact-page { padding-top: 64px; padding-bottom: 40px; }
-.contact-page__intro { max-width: 620px; margin: 0 0 40px; font-weight: 600; }
+.contact-page__intro { max-width: 620px; margin: 0 0 40px; font-weight: 300; }
 .contact-page__reach-label { margin: 0 0 8px; }
 .contact-list { margin: 0; padding: 0; list-style: none; max-width: 520px; }
 .contact-list li {
@@ -851,7 +862,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   align-items: baseline;
   gap: 4px 24px;
   padding: 12px 0;
-  border-bottom: 1px solid var(--line);
 }
 .contact-list span { flex: 0 0 96px; color: var(--grey); font-size: 12px; font-weight: 600; letter-spacing: .12em; }
 .contact-list .text-link { padding-right: 0; font-size: 14px; }
