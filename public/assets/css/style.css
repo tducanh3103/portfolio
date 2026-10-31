@@ -722,7 +722,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .page-title__inner {
   display: inline-flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: 8px 20px;
   animation: text-wipe 1.3s cubic-bezier(.645, .045, .355, 1) both;
 }
