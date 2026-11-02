@@ -848,12 +848,57 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 900px) {
   .details div { gap: 56px; }
   .about-hero { padding-top: 120px; }
-  .about-hero__grid { grid-template-columns: 1fr 372px; align-items: end; gap: 112px; }
+  .about-hero__grid { grid-template-columns: minmax(0, 1fr) 372px; align-items: end; gap: 112px; }
   .about-hero__photo { width: 100%; }
-  .about { padding-top: 168px; }
+  .about { padding-top: 120px; }   /* ảnh chân dung → hook */
+  .about-hook + .about-sec { margin-top: 120px; }   /* hook → đường ngăn, bằng khoảng trên */
   .about-sec { grid-template-columns: 200px 1fr; gap: 48px; padding-top: 72px; margin-top: 96px; }
   .timeline > div, .skills > div { grid-template-columns: 140px 1fr; }
 }
+
+/* Journey và skills: dựng theo mục "works" của walnuuut — nhãn trong khung rộng bên trái, bên phải là danh sách gạch đầu dòng "mốc + nội dung" */
+.about-sec--list .prose__list { margin: 0; max-width: 760px; }
+.about-sec--list .prose__list li { margin-bottom: 1em; }
+.about-sec--list .prose__list li:last-child { margin-bottom: 0; }
+.about-sec--list .prose__list li::marker { color: var(--black); }
+.sub-title { display: inline-block; margin: 0 0 28px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); font-size: 14px; font-weight: 600; letter-spacing: .14em; line-height: 1.4; }
+.sub-title:not(:first-child) { display: block; width: fit-content; margin-top: 56px; }
+.about-sec--list .prose__list strong { margin-right: .4em; }
+/* journey: cột mốc thời gian rộng cố định để các dòng nội dung thẳng hàng với nhau */
+.about-sec--list .timeline-list strong { display: inline-block; width: 8.6em; margin-right: 0; }
+
+/* Nhãn mục trang About: cùng kích thước (rộng 190px, cao 48px), chữ cùng cỡ với nội dung, đệm trái nhỏ, đệm trên dưới lớn */
+.about-sec .prose__label, .love__label {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 190px;
+  height: 48px;
+  margin: 0;
+  padding: 0 16px 0 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.about-sec .love__label { width: 189px; height: auto; align-self: stretch; }   /* 189 + viền trái của khung = 190, bằng các nhãn khác */
+
+/* Câu "hook" ở đầu phần nội dung trang About: logo bên trái, câu bên phải (theo bản Wix cũ và walnuuut) */
+.about-hook { display: flex; flex-direction: column; gap: 24px; }
+.about-hook .logo { align-self: flex-start; font-size: 40px; }
+.about-hook p { margin: 0; max-width: 560px; }
+@media (min-width: 900px) {
+  .about-hook { flex-direction: row; align-items: center; gap: 48px; }
+  .about-hook .logo { flex: 0 0 200px; font-size: 44px; }   /* 200 + 48 = cột nội dung bên dưới, nên câu hook thẳng hàng với nội dung */
+}
+
+/* Beyond work: dựng theo mục "love" của bản Wix cũ — một hàng khung (nhãn | câu mời) và một khung lớn bên dưới chứa các dòng sở thích */
+.about-love { display: block; }
+.love__head { display: flex; flex-wrap: wrap; align-items: stretch; box-sizing: border-box; min-height: 48px; border: 1px solid var(--ink); }
+.love__label { align-self: stretch; margin: 0; border: 0; border-right: 1px solid var(--ink); }
+.love__lead { margin: 0; padding: 8px 24px; display: flex; align-items: center; }
+.love__box { margin-top: 24px; border: 1px solid var(--ink); padding: 40px 24px; }
+.love__box p { margin: 0 0 1.8em; max-width: none; }
+.love__box p:last-child { margin-bottom: 0; }
+@media (min-width: 900px) { .love__box { padding: 56px 48px; } }
 
 /* ---------- 8d. Contact ---------- */
 .contact-page { padding-top: 64px; padding-bottom: 40px; }
@@ -920,7 +965,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   transition-delay: calc(var(--i, 0) * .08s);
 }
 /* trang About: từ profile trở xuống hiện chậm hơn */
-.js [data-late] { transition: opacity 1.4s ease, transform 1.4s ease; }
+.js [data-late] { transition: opacity .9s ease, transform .9s ease; }
 
 /* B3: tiêu đề lộ dần trái → phải */
 .js [data-reveal="clip"] {
