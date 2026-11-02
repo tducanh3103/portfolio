@@ -23,6 +23,7 @@
 
   /* chuyển động */
   --ease-out: cubic-bezier(.165, .84, .44, 1);
+  --title-gap: 64px;       /* khoảng từ khung tiêu đề trang tới phần nội dung, dùng chung mọi trang */
   --float-dist: 25px;
   --float-dur: 1s;
 }
@@ -644,9 +645,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   display: block;
   margin-top: 0;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: .12em;
-  color: var(--grey);
+  color: var(--ink);
 }
 .card__title {
   margin: 4px 0 16px;
@@ -684,9 +685,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* Khối contact: nút to hơn (bóng sọc là một ảnh 640×160 nên nút không vượt quá cỡ này) */
-.contact-cta .btn-hatch { font-size: 16px; }
-.contact-cta .btn-hatch__inner { min-width: 340px; min-height: 71px; padding: 16px 36px; }
-@media (max-width: 480px) { .contact-cta .btn-hatch__inner { min-width: 0; width: 100%; } .contact-cta .btn-hatch { display: block; max-width: 340px; margin: 0 auto; } }
+.contact-cta .btn-hatch, .contact-page__cta .btn-hatch { font-size: 16px; }
+.contact-cta .btn-hatch__inner, .contact-page__cta .btn-hatch__inner { min-width: 340px; min-height: 71px; padding: 16px 36px; }
+@media (max-width: 480px) { .contact-cta .btn-hatch__inner, .contact-page__cta .btn-hatch__inner { min-width: 0; width: 100%; } .contact-cta .btn-hatch, .contact-page__cta .btn-hatch { display: block; max-width: 340px; margin: 0 auto; } }
 
 /* Trang chủ: khối work chỉ có ảnh cover + đoạn giới thiệu */
 .work--covers .card__meta,
@@ -739,14 +740,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* Danh sách dự án */
-.work--list { padding-top: 64px; }
-@media (min-width: 900px) { .work--list { padding-top: 96px; } }
+.work--list { padding-top: var(--title-gap); }
+@media (min-width: 900px) { :root { --title-gap: 96px; } }
 .work--list .card__title { font-size: 16px; }
 
 /* Case study */
 .case .inner { max-width: 760px; }   /* cả khối nội dung canh giữa, cùng bề rộng với ảnh hero */
-.case { padding-top: 56px; }
-@media (min-width: 900px) { .case { padding-top: 88px; } }
+.case { padding-top: var(--title-gap); }
 
 /* Đầu bài: tiêu đề bên trái, nhãn nhỏ bên phải trên cùng một dòng, đường kẻ bên dưới.
    Rộng bằng ảnh hero (760px) để hai phần thẳng hàng. */
@@ -771,9 +771,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .case__meta {
   margin: 0;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: .12em;
-  color: var(--grey);
+  color: var(--ink);
   white-space: nowrap;
 }
 
@@ -822,7 +822,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 900px) { .case__nav .btn { flex: 0 0 auto; min-width: 140px; } .case__nav .btn:nth-child(2) { flex: 0 0 auto; min-width: 240px; } }
 
 /* ---------- 8c. About ---------- */
-.about-hero { padding-top: 64px; }
+.about-hero { padding-top: var(--title-gap); }
 .about-hero__grid { display: grid; gap: 56px; }
 .about-hero__photo { width: 100%; aspect-ratio: 1; justify-self: stretch; }
 
@@ -847,7 +847,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 @media (min-width: 900px) {
   .details div { gap: 56px; }
-  .about-hero { padding-top: 120px; }
   .about-hero__grid { grid-template-columns: minmax(0, 1fr) 372px; align-items: end; gap: 112px; }
   .about-hero__photo { width: 100%; }
   .about { padding-top: 120px; }   /* ảnh chân dung → hook */
@@ -901,24 +900,20 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (min-width: 900px) { .love__box { padding: 40px 48px; } }
 
 /* ---------- 8d. Contact ---------- */
-.contact-page { padding-top: 64px; padding-bottom: 40px; }
-.contact-page__intro { max-width: 620px; margin: 0 0 40px; font-weight: 300; }
+.contact-page { padding-top: var(--title-gap); padding-bottom: 40px; }
+.contact-page__intro { max-width: 620px; margin: 0 0 35px; font-weight: 300; }
 .contact-page__reach-label { margin: 0 0 8px; }
-.contact-list { margin: 0; padding: 0; list-style: none; max-width: 520px; }
-.contact-list li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 24px;
-  padding: 12px 0;
-}
-.contact-list span { flex: 0 0 96px; color: var(--grey); font-size: 12px; font-weight: 600; letter-spacing: .12em; }
-.contact-list .text-link { padding-right: 0; font-size: 14px; }
+.contact-list { margin: 0; max-width: 760px; }
+.contact-list li { margin-bottom: 1em; }
+.contact-list li:last-child { margin-bottom: 0; }
+.contact-list li::marker { color: var(--black); }
+.contact-list__k { display: inline-block; width: 6.4em; }
+.contact-list .text-link { padding: 0; font-size: 14px; line-height: inherit; }
 .contact-list .text-link::after { display: none; }
-.contact-page__cta { margin: 64px 0 0; text-align: center; }
+.contact-page__cta { margin: 46px 0 0; text-align: center; }
 @media (min-width: 900px) {
-  .contact-page { padding-top: 96px; padding-bottom: 80px; }
-  .contact-page__cta { text-align: left; margin-top: 72px; }
+  .contact-page { padding-bottom: 80px; }
+  .contact-page__cta { text-align: left; margin-top: 46px; }
 }
 
 /* ---------- 9. Hiệu ứng ---------- */

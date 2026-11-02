@@ -75,19 +75,14 @@
   var isSeq = !!document.querySelector(".case, .about-hero");
 
   if ("IntersectionObserver" in window) {
-    // trang About, từ khối hook trở xuống: mọi ý hiện lần lượt đúng thứ tự trên trang, cách nhau 0,2 giây,
-    // kể cả khi cuộn nhanh khiến nhiều ý (hoặc nhiều lượt) vào màn hình cùng lúc
-    var lateNext = 0;
+    // trang About, từ khối hook trở xuống: lướt tới đâu hiện tới đó (như trang chủ và trang Work);
+    // chỉ các ý vào màn hình trong cùng một lượt mới nối nhau theo thứ tự trang, mỗi ý cách 0,12 giây, tối đa 0,6 giây
     var revealLate = function (batch, observer) {
-      var now = performance.now();
-      var t = Math.max(now, lateNext);
-      batch.forEach(function (el) {
-        el.style.transitionDelay = Math.min(t - now, 2000) / 1000 + "s";
+      batch.forEach(function (el, i) {
+        el.style.transitionDelay = Math.min(i, 5) * 0.12 + "s";
         el.classList.add("is-in");
         observer.unobserve(el);
-        t += 200;
       });
-      lateNext = t;
     };
     var onReveal = function (entries, observer) {
       var late = observer === ioLate;
