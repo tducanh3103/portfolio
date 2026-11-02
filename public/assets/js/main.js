@@ -75,6 +75,20 @@
   var isSeq = !!document.querySelector(".case, .about-hero");
 
   if ("IntersectionObserver" in window) {
+    // trang About, từ khối hook trở xuống: mọi ý hiện lần lượt đúng thứ tự trên trang, cách nhau 0,2 giây,
+    // kể cả khi cuộn nhanh khiến nhiều ý (hoặc nhiều lượt) vào màn hình cùng lúc
+    var lateNext = 0;
+    var revealLate = function (batch, observer) {
+      var now = performance.now();
+      var t = Math.max(now, lateNext);
+      batch.forEach(function (el) {
+        el.style.transitionDelay = Math.min(t - now, 2000) / 1000 + "s";
+        el.classList.add("is-in");
+        observer.unobserve(el);
+        t += 200;
+      });
+      lateNext = t;
+    };
     var onReveal = function (entries, observer) {
       var late = observer === ioLate;
       var batch = entries.filter(function (e) { return e.isIntersecting; })
@@ -82,6 +96,7 @@
         .sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1; });   // theo thứ tự trong trang
       // các thẻ [data-stagger] hiện lần lượt theo thứ tự trái → phải, trên → dưới,
       // kể cả khi nhiều thẻ vào màn hình cùng lúc; nếu tiêu đề khối cũng vào cùng lúc thì chờ tiêu đề trước
+      if (late) { revealLate(batch, observer); return; }
       var headIn = batch.some(function (el) { return el.id === "work-title"; });
       var n = 0;
       var k = 0;

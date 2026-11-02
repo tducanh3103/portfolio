@@ -891,14 +891,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* Beyond work: dựng theo mục "love" của bản Wix cũ — một hàng khung (nhãn | câu mời) và một khung lớn bên dưới chứa các dòng sở thích */
-.about-love { display: block; }
+.about-love { display: block; padding-top: 0; border-top: 0; }   /* không có đường ngăn phía trên */
 .love__head { display: flex; flex-wrap: wrap; align-items: stretch; box-sizing: border-box; min-height: 48px; border: 1px solid var(--ink); }
 .love__label { align-self: stretch; margin: 0; border: 0; border-right: 1px solid var(--ink); }
 .love__lead { margin: 0; padding: 8px 24px; display: flex; align-items: center; }
-.love__box { margin-top: 24px; border: 1px solid var(--ink); padding: 40px 24px; }
-.love__box p { margin: 0 0 1.8em; max-width: none; }
+.love__box { margin-top: 24px; border: 1px solid var(--ink); padding: 28px 24px; }
+.love__box p { margin: 0 0 1em; max-width: none; }
 .love__box p:last-child { margin-bottom: 0; }
-@media (min-width: 900px) { .love__box { padding: 56px 48px; } }
+@media (min-width: 900px) { .love__box { padding: 40px 48px; } }
 
 /* ---------- 8d. Contact ---------- */
 .contact-page { padding-top: 64px; padding-bottom: 40px; }
