@@ -5,7 +5,7 @@
   /* ---------- CẤU HÌNH ----------
      Link LinkedIn: dán URL vào đây để bật đường kẻ + icon cạnh tên ở trang About (cả EN và VI).
      Để trống "" thì cả hai đều ẩn, không render gì. */
-  var LINKEDIN_URL = "#";   // TẠM: "#" để xem giao diện, thay bằng URL LinkedIn thật
+  var LINKEDIN_URL = "https://www.linkedin.com/in/tducanh3103/";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
