@@ -1013,3 +1013,30 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   }
   .js [data-reveal], .js [data-reveal="clip"] { transform: none; clip-path: none; }
 }
+
+/* Trang 404: tiêu đề giữa trang, chữ nổi lên từng hàng, cánh hoa anh đào rơi từ phải xuống */
+.notfound { position: relative; overflow: hidden; padding: 80px 0 140px; min-height: 560px; }
+.notfound__body { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.notfound__title { margin: 0 0 32px; font-family: var(--font-display); font-weight: 600; font-size: clamp(40px, 7vw, 56px); line-height: 1; letter-spacing: .2em; padding-left: .2em; }
+.notfound__line { margin: 0; max-width: 680px; line-height: 2.2; }
+.notfound .contact-page__cta { margin-top: 44px; text-align: center; width: 100%; }
+.notfound__petal { position: absolute; z-index: 0; pointer-events: none; height: auto; animation: petal-fall 1.8s ease-out backwards; }
+.notfound__petal--s { width: 22px; top: 92px; left: calc(50% + 120px); transform: rotate(18deg); animation-duration: 1.7s; animation-delay: .5s; }
+.notfound__petal--m { width: 34px; top: 118px; left: calc(50% + 80px); transform: rotate(-8deg); animation-duration: 1.8s; animation-delay: .4s; }
+.notfound__petal--l { width: 170px; bottom: 10px; left: calc(50% - 215px); transform: rotate(22deg); animation-name: petal-fall, petal-sway; animation-duration: 1.9s, 1.9s; animation-delay: .3s, .3s; animation-timing-function: ease-out, ease-out; animation-fill-mode: backwards, both; }
+@keyframes petal-fall {
+  from { translate: 36px -28px; opacity: 0; }
+  to   { translate: 0 0; opacity: 1; }
+}
+/* cánh lớn xoay một chiều từ trái sang phải (tổng 5 độ) cùng lúc với lúc rơi, dừng cùng các cánh nhỏ (giây 2,2), không nảy lại */
+@keyframes petal-sway {
+  from { rotate: -2.5deg; }
+  to   { rotate: 2.5deg; }
+}
+@media (prefers-reduced-motion: reduce) { .notfound__petal { animation: none; } }
+@media (min-width: 900px) {
+  .notfound { padding-top: 130px; min-height: 620px; }
+  .notfound__petal--s { width: 26px; top: 138px; left: calc(50% + 226px); }
+  .notfound__petal--m { width: 40px; top: 170px; left: calc(50% + 150px); }
+  .notfound__petal--l { width: 210px; top: 400px; bottom: auto; left: calc(50% - 255px); }
+}
