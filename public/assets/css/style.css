@@ -905,8 +905,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* ---------- 8d. Contact ---------- */
-.contact-page { padding-top: var(--title-gap); padding-bottom: 40px; }
+.contact-page { padding-top: var(--title-gap); padding-bottom: 0; }
+main:has(.contact-page) + .site-footer { padding-top: 64px; }   /* trang contact: khoảng cách nút và footer gọn hơn */
 .contact-page__intro { max-width: 620px; margin: 0 0 35px; font-weight: 300; }
+.br-wide { display: none; }
+@media (min-width: 900px) { .contact-page__intro { max-width: 960px; } .br-wide { display: inline; } }
 .contact-page__reach-label { margin: 0 0 8px; }
 .contact-list { margin: 0; max-width: 760px; }
 .contact-list li { margin-bottom: 1em; }
@@ -917,7 +920,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .contact-list .text-link::after { display: none; }
 .contact-page__cta { margin: 46px 0 0; text-align: center; }
 @media (min-width: 900px) {
-  .contact-page { padding-bottom: 80px; }
+  main:has(.contact-page) + .site-footer { padding-top: 100px; }
   .contact-page__cta { text-align: left; margin-top: 46px; }
 }
 
@@ -1047,3 +1050,23 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .toast.is-on { animation: toast-pop .35s ease; }
 @keyframes toast-pop { from { opacity: .4; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
 @media (prefers-reduced-motion: reduce) { .toast.is-on { animation: none; } }
+
+/* Trang chủ, lần đầu vào phiên: chấm vàng của logo rơi như quả bóng da: dài ra khi rơi, móp đáy khi chạm, thon lại khi nảy lên */
+.dot-drop .site-header .logo::before { transform-origin: 50% 100%; animation: dot-drop 2.6s .3s backwards; }
+@keyframes dot-drop {
+  0%   { transform: translateY(-140px) scale(1, 1);       animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  34%  { transform: translateY(-5px) scale(.9, 1.22);     animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  38%  { transform: translateY(0) scale(1.55, .5);        animation-timing-function: cubic-bezier(0, .55, .45, 1); }
+  42%  { transform: translateY(-8px) scale(.86, 1.25);    animation-timing-function: cubic-bezier(0, .55, .45, 1); }
+  55%  { transform: translateY(-24px) scale(1, 1);        animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  66%  { transform: translateY(-3px) scale(.94, 1.12);    animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  70%  { transform: translateY(0) scale(1.3, .7);         animation-timing-function: cubic-bezier(0, .55, .45, 1); }
+  73%  { transform: translateY(-3px) scale(.92, 1.14);    animation-timing-function: cubic-bezier(0, .55, .45, 1); }
+  81%  { transform: translateY(-10px) scale(1, 1);        animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  89%  { transform: translateY(-1px) scale(.97, 1.06);    animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  91%  { transform: translateY(0) scale(1.12, .86);       animation-timing-function: cubic-bezier(0, .55, .45, 1); }
+  94%  { transform: translateY(-2px) scale(.97, 1.05);    animation-timing-function: cubic-bezier(0, .55, .45, 1); }
+  96%  { transform: translateY(-3px) scale(1, 1);         animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+@media (prefers-reduced-motion: reduce) { .dot-drop .site-header .logo::before { animation: none; } }
