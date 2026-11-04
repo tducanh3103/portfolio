@@ -164,3 +164,52 @@
     update();
   }
 })();
+
+// Liên kết email: nếu máy không có ứng dụng mail để mở mailto, chép sẵn email và báo cho người xem
+(function () {
+  var links = document.querySelectorAll('a[href^="mailto:"]');
+  if (!links.length) return;
+  var vi = document.documentElement.lang === "vi";
+  var toast, hideTimer;
+  var noMail = false;   // đã biết máy không mở được mailto: các lần bấm sau báo ngay
+
+  function show(addr) {
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.className = "toast";
+      toast.setAttribute("role", "status");
+      document.body.appendChild(toast);
+    }
+    toast.textContent = vi
+      ? "chưa mở được ứng dụng mail. mình đã chép sẵn email: " + addr
+      : "no mail app found. email copied: " + addr;
+    toast.classList.add("is-on");
+    // mỗi lần bấm thông báo nảy lên lại để người xem thấy nút đang phản hồi
+    toast.style.animation = "none";
+    void toast.offsetWidth;
+    toast.style.animation = "";
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function () { toast.classList.remove("is-on"); }, 6000);
+  }
+
+  function copy(addr) {
+    try { navigator.clipboard.writeText(addr); } catch (e) {}
+  }
+
+  links.forEach(function (a) {
+    a.addEventListener("click", function () {
+      var addr = a.getAttribute("href").replace("mailto:", "").split("?")[0];
+      if (noMail) { copy(addr); show(addr); return; }
+      var left = false;
+      var onBlur = function () { left = true; };
+      window.addEventListener("blur", onBlur, { once: true });
+      setTimeout(function () {
+        window.removeEventListener("blur", onBlur);
+        if (left || document.hidden) return;   // ứng dụng mail đã mở
+        noMail = true;
+        copy(addr);
+        show(addr);
+      }, 1200);
+    });
+  });
+})();

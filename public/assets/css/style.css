@@ -1040,3 +1040,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .notfound__petal--m { width: 40px; top: 170px; left: calc(50% + 150px); }
   .notfound__petal--l { width: 210px; top: 400px; bottom: auto; left: calc(50% - 255px); }
 }
+
+/* thông báo nhỏ (email đã chép) */
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 50; max-width: calc(100vw - 32px); padding: 14px 20px; background: var(--ink); color: var(--white); font-size: 14px; line-height: 1.5; text-align: center; opacity: 0; transform: translate(-50%, 12px); transition: opacity .3s ease, transform .3s ease; pointer-events: none; }
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+.toast.is-on { animation: toast-pop .35s ease; }
+@keyframes toast-pop { from { opacity: .4; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@media (prefers-reduced-motion: reduce) { .toast.is-on { animation: none; } }
