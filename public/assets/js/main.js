@@ -142,13 +142,14 @@
     }
     window.addEventListener("load", function () { load(1); });
 
-    function next() {
+    function go(dir) {
       slides[current].classList.remove("is-active");
-      current = (current + 1) % slides.length;
+      current = (current + dir + slides.length) % slides.length;
       load(current);
       slides[current].classList.add("is-active");
-      load(current + 1);
+      load(current + dir);
     }
+    function next() { go(1); }
     function start() { if (!timer) timer = setInterval(next, 5000); }
     function stop() { clearInterval(timer); timer = null; }
     function update() { (heroVisible && !document.hidden) ? start() : stop(); }
@@ -162,6 +163,20 @@
       }).observe(slides[0].parentElement);
     }
     update();
+
+    // Mũi tên chuyển ảnh thủ công (hiện khi rê chuột, xem CSS). Bấm xong thì tính lại 5 giây cho ảnh kế tiếp
+    var prevBtn = document.querySelector(".hero__arrow--prev");
+    var nextBtn = document.querySelector(".hero__arrow--next");
+    function manual(dir) {
+      go(dir);
+      if (timer) { stop(); update(); }
+    }
+    if (prevBtn && nextBtn) {
+      prevBtn.hidden = false;
+      nextBtn.hidden = false;
+      prevBtn.addEventListener("click", function () { manual(-1); });
+      nextBtn.addEventListener("click", function () { manual(1); });
+    }
   }
 })();
 

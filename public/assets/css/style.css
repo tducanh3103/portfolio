@@ -501,6 +501,30 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__media { aspect-ratio: 1200 / 700; margin-inline: 0; }
 }
 
+/* Mũi tên chuyển ảnh: chỉ hiện khi rê chuột vào hero (máy có chuột). Trái: mờ thành rõ, trượt từ phải sang trái. Phải: ngược lại. */
+.hero__stage { position: relative; }
+.hero__arrow { display: none; }
+@media (min-width: 900px) and (hover: hover) {
+  .hero__arrow {
+    display: flex; position: absolute; top: 50%; z-index: 2;
+    width: 20px; height: 72px; margin-top: -36px; padding: 0;
+    align-items: center; justify-content: center;
+    border: 0; background: none; color: var(--black); cursor: pointer;
+    opacity: 0; transition: opacity .5s ease, transform .5s ease;
+  }
+  .hero__arrow[hidden] { display: none; }
+  .hero__arrow::before { content: ""; position: absolute; top: -40px; bottom: -40px; left: -26px; right: -26px; }   /* vùng bấm rộng hơn mũi tên để khó bấm trượt */
+  .hero__arrow svg { width: 20px; height: 36px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+  .hero__arrow--prev { left: calc(-1 * min(52px, (100vw - 100%) / 2 - 4px)); transform: translateX(16px); }
+  .hero__arrow--next { right: calc(-1 * min(52px, (100vw - 100%) / 2 - 4px)); transform: translateX(-16px); }
+  .hero__stage:hover .hero__arrow, .hero__stage:focus-within .hero__arrow { opacity: 1; transform: none; }
+}
+@media (min-width: 900px) and (max-width: 1279px) and (hover: hover) {
+  /* màn hình vừa: lề hai bên chỉ 40px, mũi tên nhỏ lại một chút để vẫn cách ảnh xa hơn */
+  .hero__arrow { width: 16px; }
+  .hero__arrow svg { width: 16px; height: 30px; }
+}
+
 .hero__slide {
   position: absolute;
   inset: 0;
