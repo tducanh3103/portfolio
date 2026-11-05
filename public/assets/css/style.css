@@ -889,6 +889,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .about-sec--list .prose__list strong { margin-right: .4em; }
 /* journey: cột mốc thời gian rộng cố định để các dòng nội dung thẳng hàng với nhau */
 .about-sec--list .timeline-list strong { display: inline-block; width: 8.6em; margin-right: 0; }
+/* dòng dài xuống hàng thì thụt vào thẳng cột nội dung, và chia đều để không rớt một chữ lẻ */
+.about-sec--list .timeline-list { max-width: 860px; }
+.about-sec--list .timeline-list li { padding-left: calc(8.6em + .29em); text-wrap: balance; }
+.about-sec--list .timeline-list strong { margin-left: calc(-8.6em - .29em); }
 
 /* Nhãn mục trang About: cùng kích thước (rộng 190px, cao 48px), chữ cùng cỡ với nội dung, đệm trái nhỏ, đệm trên dưới lớn */
 .about-sec .prose__label, .love__label {
